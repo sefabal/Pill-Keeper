@@ -51,26 +51,19 @@ namespace DrugKeeper.Views
                 Item.Id = new Guid();
                 MessagingCenter.Send(this, "AddReminder", Item);
                 NewreminderViewModel.MongoRepo.AddReminder(Item);
-
                 SaveLocalNotification(Item);
-
                 await DisplayAlert("Reminders", "Reminder added succesfully.", "OK");
-
                 await Navigation.PopModalAsync();
             }
         }
         async void SaveLocalNotification(Reminder reminder)
         {
 
-            var date = (reminder.StartingDate.Month.ToString("00") + "-" + reminder.StartingDate.Date.Day.ToString("00") + "-" + reminder.StartingDate.Date.Year.ToString());
-            
             var selectedDate = reminder.StartingDate;
             var frequencyHour = reminder.FrequencyHour;
-
-            var selectedDateTime = DateTime.ParseExact("01-12-2019 22:27", "MM-dd-yyyy HH:mm", CultureInfo.InvariantCulture);
-            var MessageText = reminder.Pill.Name + " time!!";
+            var MessageText = "Time to take your pill : " + reminder.Pill.Name;
             DependencyService.Get<ILocalNotificationService>().Cancel(0);
-            DependencyService.Get<ILocalNotificationService>().LocalNotification("Local Notification", MessageText, 0, selectedDateTime, frequencyHour);
+            DependencyService.Get<ILocalNotificationService>().LocalNotification("Pill Notification", MessageText, 0, selectedDate, frequencyHour);
             await DisplayAlert("Pill Notification", "Notification details saved successfully ", "Ok");
         }
 

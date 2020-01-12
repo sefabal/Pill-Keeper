@@ -8,7 +8,7 @@
              x:Class="DrugKeeper.Views.MapPage"
              Title="{Binding Title}">
 
-    <StackLayout Spacing="20" Padding="15">
+    <StackLayout Padding="15" BackgroundColor="AntiqueWhite">
         <maps:Map x:Name="map" IsShowingUser="true"  />
     </StackLayout>
     

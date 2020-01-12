@@ -12,7 +12,7 @@
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
 
-    <StackLayout>
+    <StackLayout BackgroundColor="AntiqueWhite">
         <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Pills}"
                 VerticalOptions="FillAndExpand"
@@ -36,9 +36,11 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding Name}" 
+                            <Label 
+                                Text="{Binding Name}" 
                                 d:Text="{Binding .}"
                                 LineBreakMode="NoWrap" 
+                                FontAttributes="Bold"
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
                             <Label Text="{Binding Details}" 
@@ -48,6 +50,7 @@
                                 FontSize="13" />
                             <Label Text="{Binding SideEffects}" 
                                 d:Text="Item side effects"
+                                FontAttributes="Italic"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />

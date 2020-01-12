@@ -12,15 +12,15 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="Pill Name" FontSize="Medium" />
+        <StackLayout Spacing="20" Padding="15" BackgroundColor="AntiqueWhite">
+            <Label FontAttributes="Bold" Text="Pill Name" FontSize="Medium" />
             <Picker x:Name="PillPicker" Title="Pills"></Picker>
-            <Label Text="Amount" FontSize="Medium" />
-            <Entry Text="{Binding Amount}" d:Text="Pill details" FontSize="Small" Margin="0" />
-            <Label Text="Dose" FontSize="Medium" />
-            <Entry Text="{Binding Dose}" d:Text="Pill details" FontSize="Small" Margin="0" />
-            <Label Text="Frequency Hour" FontSize="Medium" />
-            <Entry Text="{Binding FrequencyHour}" d:Text="Item description" FontSize="Small" Margin="0" />
+            <Label FontAttributes="Bold" Text="Amount" FontSize="Medium" />
+            <Entry Text="{Binding Amount}" d:Text="Amount" FontSize="Small" Margin="0" />
+            <Label FontAttributes="Bold" Text="Dose" FontSize="Medium" />
+            <Entry Text="{Binding Dose}" d:Text="Dose" FontSize="Small" Margin="0" />
+            <Label FontAttributes="Bold" Text="Frequency Hour" FontSize="Medium" />
+            <Entry Text="{Binding FrequencyHour}" d:Text="Frequency Hour" FontSize="Small" Margin="0" />
             <Label Text="Starting Date" FontSize="Medium" />
             <DatePicker Date="{Binding StartingDate}"/>
 

@@ -15,6 +15,7 @@ namespace DrugKeeper.Views
         private BaseViewModel BaseView => new BaseViewModel();
         public MapPage()
         {
+            Title = "Map";
             InitializeComponent();
 
             var location = Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync().Result;

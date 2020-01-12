@@ -11,17 +11,18 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="LOGIN PAGE!"
+        <StackLayout BackgroundColor="AntiqueWhite">
+            <Label FontAttributes="Bold" Text="LOGIN"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+                   FontSize="Large"/>
             <StackLayout Spacing="20" Padding="15">
-                <Label Text="Username" FontSize="Medium" />
+                <Label FontAttributes="Bold" Text="Username" FontSize="Medium" />
                 <Entry Text="{Binding LoggedUser.Username}" d:Text="Username" FontSize="Small" />
-                <Label Text="Password" FontSize="Medium" />
+                <Label FontAttributes="Bold" Text="Password" FontSize="Medium" />
                 <Entry Text="{Binding LoggedUser.Password}" IsPassword="True"  d:Text="Password" FontSize="Small" Margin="0" />
-                <Button Text="LOGIN" Clicked="Login_Clicked"></Button>
-                <Button Text="Register" Clicked="Register_Clicked"></Button>
+                <Button BackgroundColor="AliceBlue" Text="LOGIN" Clicked="Login_Clicked"></Button>
+                <Button BackgroundColor="PowderBlue" Text="Register" Clicked="Register_Clicked"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

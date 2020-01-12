@@ -13,12 +13,12 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="Pill Name" FontSize="Medium" />
+        <StackLayout Spacing="20" Padding="15" BackgroundColor="AntiqueWhite">
+            <Label FontAttributes="Bold" Text="Pill Name" FontSize="Medium" />
             <Entry Text="{Binding Item.Name}" d:Text="Pill Name" FontSize="Small" />
-            <Label Text="Details" FontSize="Medium" />
+            <Label FontAttributes="Bold" Text="Details" FontSize="Medium" />
             <Editor Text="{Binding Item.Details}" d:Text="Pill details" FontSize="Small" Margin="0" />
-            <Label Text="Side Effects" FontSize="Medium" />
+            <Label FontAttributes="Bold" Text="Side Effects" FontSize="Medium" />
             <Editor Text="{Binding Item.SideEffects}" d:Text="Item description" FontSize="Small" Margin="0" />
         </StackLayout>
     </ContentPage.Content>

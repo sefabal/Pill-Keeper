@@ -13,7 +13,7 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="AntiqueWhite">
             <Label x:Name="NotLogged" Text="You should login to see reminders page!"></Label>
             <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Reminders}"
