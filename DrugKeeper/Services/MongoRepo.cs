@@ -4,6 +4,7 @@ using MongoDB.Driver;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -59,9 +60,11 @@ namespace DrugKeeper.Services
         {
             if (LoggedUser != null)
             {
-                LoggedUser.Reminders.Add(newReminder);
-
-                this.UserCollection.ReplaceOne<User>(u => u.Username == LoggedUser.Username, LoggedUser);
+                if (LoggedUser.Reminders.Where(r => r.Pill == newReminder.Pill && r.StartingDate == newReminder.StartingDate).Count() == 0)
+                {
+                    LoggedUser.Reminders.Add(newReminder);
+                    this.UserCollection.ReplaceOne<User>(u => u.Username == LoggedUser.Username, LoggedUser);
+                }
             }
         }
 

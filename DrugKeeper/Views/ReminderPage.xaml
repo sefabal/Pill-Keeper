@@ -43,22 +43,22 @@
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
-                                <Label Text="{Binding Dose}" 
+                                <Label Text="{Binding Dose,StringFormat='Dose : {0}'}" 
                                 d:Text="Item side effects"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
-                                <Label Text="{Binding Amount}" 
+                                <Label Text="{Binding Amount,StringFormat='Amount : {0}'}" 
                                 d:Text="Item details"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
-                                <Label Text="{Binding FrequencyHour}" 
+                                <Label Text="{Binding FrequencyHour,StringFormat='Frequency hour : {0}'}" 
                                 d:Text="Item side effects"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
-                                <Label Text="{Binding StartingDate}" 
+                                <Label Text="{Binding StartingDate,StringFormat='Beginning date: {0}'}" 
                                 d:Text="Item side effects"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"

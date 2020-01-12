@@ -40,6 +40,7 @@ namespace DrugKeeper.Views
         async void Logout_Clicked(object sender, EventArgs e)
         {
             await DisplayAlert("Login Process", "LOGGED OUT!", "OK");
+            MessagingCenter.Send(this, "LoggedOutUser", new User());
             MongoRepo.LoggedUser = null;
             UserViewModel.User = null;
             LoginButton.IsVisible = true;

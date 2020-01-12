@@ -11,15 +11,6 @@ namespace DrugKeeper.ViewModels
 
         public Reminder NewReminder;
 
-        public double amount;
-        public double frequencyHour;
-        public double dose;
-
-        public string Amount { get { return String.Format("{0:N}", this.amount); } }
-        public string FrequencyHour { get { return String.Format("{0:N}", this.frequencyHour); } }
-        public DateTime StartingDate { get; set; }
-        public string Dose { get { return String.Format("{0:N}", this.dose); } }
-
         public NewReminderViewModel()
         {
             NewReminder = new Reminder();

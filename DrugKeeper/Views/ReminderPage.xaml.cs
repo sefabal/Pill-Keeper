@@ -27,6 +27,13 @@ namespace DrugKeeper.Views
                 NotLogged.IsVisible = false;
             });
 
+            MessagingCenter.Subscribe<LoginUser, User>(this, "LoggedOutUser", (obj, user) =>
+            {
+                var logUser = user as User;
+                NotLogged.IsVisible = true;
+                ReminderViewModel.Reminders.Clear();
+            });
+
             BindingContext = ReminderViewModel = new RemindersViewModel();
         }
 

@@ -21,13 +21,14 @@ namespace DrugKeeper.Views
             Position position;
             if (location != null)
             {
+
                 position = new Position(location.Latitude, location.Longitude);
             }
             else
             {
                 position = new Position(0, 0);
             }
-            MapSpan mapSpan = new MapSpan(position, 0.01, 0.01);
+            MapSpan mapSpan = new MapSpan(position, 0.04, 0.04);
             map.MoveToRegion(mapSpan);
             var online = BaseView.MongoRepo.GetOnlinePharmacy();
 

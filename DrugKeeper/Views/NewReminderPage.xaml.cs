@@ -23,7 +23,7 @@ namespace DrugKeeper.Views
 
             BindingContext = NewReminder = new Reminder()
             {
-                Amount = 0,
+                Amount = 20,
                 Dose = 1,
                 FrequencyHour = 12,
                 StartingDate = DateTime.Now
@@ -35,7 +35,10 @@ namespace DrugKeeper.Views
             base.OnAppearing();
 
             if (PillPicker.ItemsSource == null)
+            {
                 PillPicker.ItemsSource = await NewreminderViewModel.MongoRepo.GetAllPills();
+                PillPicker.ItemDisplayBinding = new Binding("Name");
+            }
         }
 
         async void Save_Clicked(object sender, EventArgs e)

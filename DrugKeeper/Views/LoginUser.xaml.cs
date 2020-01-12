@@ -38,6 +38,7 @@ namespace DrugKeeper.Views
                 var logged = await BaseViewModel.MongoRepo.GetUserAsync(LoggedUser.Username);
                 MessagingCenter.Send(this, "LoggedUser", logged);
                 MessagingCenter.Send(this, "LoggedUserReminder", logged);
+                await DisplayAlert("Login Process", "Logged-in succesfully.", "OK");
                 await Navigation.PopModalAsync();
             }
             else
