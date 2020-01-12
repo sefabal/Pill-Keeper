@@ -4,14 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="DrugKeeper.Views.AboutPage"
+             x:Class="DrugKeeper.Views.UserPage"
              xmlns:vm="clr-namespace:DrugKeeper.ViewModels"
              Title="{Binding Title}">
-    
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="LogoutButton" Text="Logout" Clicked="Logout_Clicked" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.BindingContext>
-        <vm:AboutViewModel />
+        <vm:UserViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
@@ -38,9 +42,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="AppName" FontAttributes="Bold" FontSize="22" />
-                                <Span Text=" " />
-                                <Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
+                                <Span Text="Your health keeper." FontAttributes="Bold" FontSize="22" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
@@ -49,10 +51,8 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="This app is written in C# and native APIs using the" />
-                                <Span Text=" " />
-                                <Span Text="Xamarin Platform" FontAttributes="Bold" />
-                                <Span Text="." />
+                                <Span x:Name="Username" Text="Username : " />
+                                <Span x:Name="UUsername" Text="{Binding User.Username,Mode=TwoWay}" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
@@ -61,21 +61,32 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="It shares code with its" />
-                                <Span Text=" " />
-                                <Span Text="iOS, Android, and Windows" FontAttributes="Bold" />
-                                <Span Text=" " />
-                                <Span Text="versions." />
+                                <Span x:Name="Age" Text="Age : " />
+                                <Span x:Name="UserAge" Text="{Binding User.Age,Mode=TwoWay}" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
-                        Command="{Binding OpenWebCommand}"
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span x:Name="Gender" Text="Gender : " />
+                                <Span x:Name="UserGender" Text="{Binding User.Gender,Mode=TwoWay}" />
+                            </FormattedString.Spans>
+
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Button x:Name="LoginButton"
+                        Margin="0,10,0,0" Text="Login"
+                        Clicked="Login_Clicked"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
+                <!--Command="{Binding OpenWebCommand}"-->
+
             </StackLayout>
         </ScrollView>
     </Grid>
-    
+
 </ContentPage>

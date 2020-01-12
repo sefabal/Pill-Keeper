@@ -17,7 +17,7 @@ namespace DrugKeeper.Services
 
         private readonly IMongoCollection<User> UserCollection;
 
-        public User LoggedUser;
+        public User LoggedUser { get; set; }
 
         private readonly HttpClient httpClient;
 
@@ -38,7 +38,7 @@ namespace DrugKeeper.Services
             int month = today.Month;
             int year = today.Year;
 
-            
+
             string dayString = day + "-0" + month + "-" + year;
 
             var requestLink = "http://eskisehireo.sosyalinteraktif.com/tr/default/nec/harita-nobet-listesi-data?date=" + dayString;
@@ -110,10 +110,14 @@ namespace DrugKeeper.Services
 
         public bool CheckUser(User user)
         {
-            var checkedUser = this.UserCollection.Find(x => x.Username == user.Username && x.Password == user.Password).First();
+            var checkedUser = this.UserCollection.Find(x => x.Username == user.Username && x.Password == user.Password).FirstOrDefault();
 
             if (checkedUser == null)
                 return false;
+            else
+            {
+                LoggedUser = checkedUser;
+            }
 
             return true;
         }

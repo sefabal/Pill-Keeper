@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DrugKeeper.Views.LoginUser">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="LOGIN PAGE!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="Username" FontSize="Medium" />
+                <Entry Text="{Binding LoggedUser.Username}" d:Text="Username" FontSize="Small" />
+                <Label Text="Password" FontSize="Medium" />
+                <Entry Text="{Binding LoggedUser.Password}" IsPassword="True"  d:Text="Password" FontSize="Small" Margin="0" />
+                <Button Text="LOGIN" Clicked="Login_Clicked"></Button>
+                <Button Text="Register" Clicked="Register_Clicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

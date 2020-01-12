@@ -1,4 +1,5 @@
-﻿using DrugKeeper.ViewModels;
+﻿using DrugKeeper.Models;
+using DrugKeeper.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,19 @@ namespace DrugKeeper.Views
     public partial class ReminderPage : ContentPage
     {
 
-        RemindersViewModel reminderViewModel;
+        RemindersViewModel ReminderViewModel;
 
         public ReminderPage()
         {
             InitializeComponent();
 
-            BindingContext = reminderViewModel = new RemindersViewModel();
+            MessagingCenter.Subscribe<LoginUser, User>(this, "LoggedUser", (obj, user) =>
+            {
+                var logUser = user as User;
+                NotLogged.IsVisible = false;
+            });
+
+            BindingContext = ReminderViewModel = new RemindersViewModel();
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
@@ -32,11 +39,16 @@ namespace DrugKeeper.Views
         {
             base.OnAppearing();
 
-            if (reminderViewModel.Reminders.Count == 0)
+            if (ReminderViewModel.Reminders.Count == 0)
             {
-                if (reminderViewModel.MongoRepo.LoggedUser != null)
+                if (ReminderViewModel.MongoRepo.LoggedUser != null)
                 {
-                    reminderViewModel.LoadItemsCommand.Execute(null);
+                    NotLogged.IsVisible = false;
+                    ReminderViewModel.LoadItemsCommand.Execute(null);
+                }
+                else
+                {
+                    NotLogged.IsVisible = true;
                 }
             }
         }

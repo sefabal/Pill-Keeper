@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DrugKeeper.Views.RegisterPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Register PAGE!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="Username" FontSize="Medium" />
+                <Entry Text="{Binding RegisteredUser.Username}" d:Text="Username" FontSize="Small" />
+                <Label Text="Password" FontSize="Medium" />
+                <Entry Text="{Binding RegisteredUser.Password}" IsPassword="True"  d:Text="Password" FontSize="Small" Margin="0" />
+                <Label Text="Gender ( M or F )" FontSize="Medium" />
+                <Entry Text="{Binding RegisteredUser.Gender}" d:Text="M or F" FontSize="Small" Margin="0" />
+                <Label Text="Age" FontSize="Medium" />
+                <Entry Text="{Binding RegisteredUser.Age}" d:Text="Age" FontSize="Small" Margin="0" />
+                <Button Text="Register" Clicked="Register_Clicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

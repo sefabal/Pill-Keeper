@@ -12,10 +12,9 @@ namespace DrugKeeper.Views
     [DesignTimeVisible(false)]
     public partial class MapPage : ContentPage
     {
-        private BaseViewModel baseView => new BaseViewModel();
+        private BaseViewModel BaseView => new BaseViewModel();
         public MapPage()
         {
-
             InitializeComponent();
 
             var location = Xamarin.Essentials.Geolocation.GetLastKnownLocationAsync().Result;
@@ -30,7 +29,7 @@ namespace DrugKeeper.Views
             }
             MapSpan mapSpan = new MapSpan(position, 0.01, 0.01);
             map.MoveToRegion(mapSpan);
-            var online = baseView.MongoRepo.GetOnlinePharmacy();
+            var online = BaseView.MongoRepo.GetOnlinePharmacy();
 
             foreach (OnlinePharmacy.Data data in online.data)
             {
@@ -39,9 +38,8 @@ namespace DrugKeeper.Views
                 var longtitute = Double.Parse(locations[1]);
                 Position pharmacyPos = new Position(latitute, longtitute);
 
-                map.Pins.Add(new Pin() { Label = data.eczane_adi, Position = pharmacyPos, Type = PinType.Place });
+                map.Pins.Add(new Pin() { Label = data.eczane_adi + " Eczanesi", Position = pharmacyPos, Type = PinType.Place });
             }
-            //BindingContext = viewModel;
         }
     }
 }

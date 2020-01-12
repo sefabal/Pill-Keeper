@@ -20,7 +20,7 @@ namespace DrugKeeper.ViewModels
             Reminders = new ObservableCollection<Reminder>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewReminderPage, Reminder>(this, "AddItem", (obj, reminder) =>
+            MessagingCenter.Subscribe<NewReminderPage, Reminder>(this, "AddReminder", (obj, reminder) =>
             {
                 var newReminder = reminder as Reminder;
                 Reminders.Add(newReminder);
@@ -48,7 +48,7 @@ namespace DrugKeeper.ViewModels
                     }
                 } else
                 {
-                    
+                    await Application.Current.MainPage.DisplayAlert("Reminders", "You should login to see reminders!", "OK");
                 }
             }
             catch (Exception ex)
