@@ -25,7 +25,7 @@ namespace DrugKeeper.Services
         public MongoRepo()
         {
             httpClient = new HttpClient();
-            var client = new MongoClient("mongodb+srv://homeworkadmin:homeworkadmin@cluster0-xlkgc.azure.mongodb.net/test?retryWrites=true&w=majority");
+            var client = new MongoClient("YourMONGOAddress");
             var database = client.GetDatabase("Samples");
             this.PillCollection = database.GetCollection<Pill>("Pills");
             this.ReminderCollection = database.GetCollection<Reminder>("Reminders");
